@@ -1,33 +1,22 @@
 package org.java.mql.ui;
 
-
-
+import java.util.HashSet;
 import java.util.Set;
 
-import org.java.mql.memory.ProjectScanner;
+import org.java.mql.Explorer.Memory;
+import org.java.mql.Explorer.PackageScanner;
+import org.java.mql.Explorer.ProjectScanner;
 
 public class Test {
+    
+    public Test(){
+        exp01();
+    }
 
-	public Test() {
-		exp01();
+    private void exp01() {
+    	Memory m = new Memory();	
 	}
-	
-	
-	public void exp01() {
-		ProjectScanner memoir = new ProjectScanner();
-		String classpath = System.getProperty("java.class.path") ;
-		Set<String> packages = memoir.projectScanner("C:\\Users\\lenovo\\Desktop\\TPs\\UML Diagrams Generator");
-		for (String p : packages) {
-			System.out.println(p);
-		}
-	}
-	
-	
-	public static void main(String[] args) {
-		new Test();
-	}
-	
-	
-
-	
+    public static void main(String[] args){
+        new Test();
+    }
 }

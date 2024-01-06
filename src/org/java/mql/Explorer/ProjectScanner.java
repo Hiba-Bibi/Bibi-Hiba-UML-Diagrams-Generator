@@ -1,4 +1,4 @@
-package org.java.mql.memory;
+package org.java.mql.Explorer;
 
 import java.io.File;
 import java.util.HashSet;
@@ -12,22 +12,22 @@ public class ProjectScanner {
 	}
 	
 	
-	public Set<String> projectScanner(String classpath) {
+	public Set<String> scan(String projectName) {
 		
+		String classPath = projectName + "\\bin";
 		packageNames = new HashSet<>();
-		classpath = classpath + "\\bin";
-		System.out.println(classpath);
-		
-		File repertoire = new File(classpath);
+			
+	    File repertoire = new File(classPath);
 		if(repertoire.isDirectory() && repertoire.exists()) {
-			 for (File file : repertoire.listFiles()) {
-				 packageNames.addAll(scanFolder(file,repertoire.getAbsolutePath()));
-		        } 
-	         }
+			for (File file : repertoire.listFiles()) {
+				packageNames.addAll(scanFolder(file,repertoire.getAbsolutePath()));
+			} 
+		 }
 		else {
-            System.out.println("Le dossier spécifié n'existe pas ou n'est pas un dossier valide.");
-        }
-		
+	       System.out.println("Le dossier spécifié n'existe pas ou n'est pas un dossier valide.");
+	    }
+
+     		
 	 	return packageNames;
 	}
 
@@ -48,6 +48,7 @@ public class ProjectScanner {
 	return packageNames;
 	}
 	
+
 	private String getPackageName(File Classpath,String binPath) {
 		String absolutePath = Classpath.getAbsolutePath();
 		String className =absolutePath.substring(0, absolutePath.length() - 6);
@@ -55,33 +56,15 @@ public class ProjectScanner {
         return removeLastElement(relativePath);
     }
 	
-	private static String removeLastElement(String path) {
-        int lastSeparatorIndex = path.lastIndexOf("\\");
+	private static String removeLastElement(String relativePath) {
+        int lastSeparatorIndex = relativePath.lastIndexOf("\\");
         
         if (lastSeparatorIndex != -1) {
-            return path.substring(0, lastSeparatorIndex);
+        	String packageName = relativePath.substring(0, lastSeparatorIndex);
+        	return packageName.replace('\\', '.');
         } else {
-            return path;
+            return relativePath.replace('\\', '.');
         }
     }
-	
-	/*
-	public String getPackage(String className) {
-		className = className.replace("\\", ".");
-		String packageName = "";
-		
-			try {
-			Class<?> myClass = Class.forName(className);
-			packageName = myClass.getPackageName();
-			} catch (Exception e) {
-			System.out.println("Erreur = " + e.getMessage());
-			}
-			return packageName;
-	}
-	*/
-	public void classScanner() {
-		
-	}
-	
 	
 }
