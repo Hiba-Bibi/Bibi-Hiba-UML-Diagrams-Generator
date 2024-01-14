@@ -4,11 +4,11 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ProjectScanner {
+public class ProjectExplorer {
 
 	private Set<String> packageNames;
 	
-	public ProjectScanner() {
+	public ProjectExplorer() {
 	}
 	
 	
