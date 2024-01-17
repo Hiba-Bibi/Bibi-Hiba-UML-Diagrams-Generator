@@ -3,6 +3,11 @@ package org.java.mql.models;
 import java.util.List;
 import java.util.Vector;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Package {
 
 	private List<Class> classes;
@@ -22,19 +27,20 @@ public class Package {
 	
 
 
-	
+    @XmlElement(name = "classe")
 	public List<Class> getClasses() {
 		return classes;
 	}
 
+    @XmlElement(name = "annotation")
 	public List<Annotation> getAnnotations() {
 		return annotations;
 	}
-
+    @XmlElement(name = "enumeration")
 	public List<Enumeration> getEnumerations() {
 		return enumerations;
 	}
-
+    @XmlElement(name = "interface")
 	public List<Interface> getInterfaces() {
 		return interfaces;
 	}
@@ -53,7 +59,7 @@ public class Package {
 	public void setInterfaces(List<Interface> interfaces) {
 		this.interfaces = interfaces;
 	}
-
+	@XmlAttribute(name = "name",  required = true)
 	public String getPackage() {
 		return pack;
 	}

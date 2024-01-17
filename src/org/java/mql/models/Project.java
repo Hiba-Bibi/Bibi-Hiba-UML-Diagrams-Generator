@@ -3,6 +3,10 @@ package org.java.mql.models;
 import java.util.List;
 import java.util.Vector;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Project {
 	
 	private List<Package> packages;
@@ -12,7 +16,7 @@ public class Project {
 		packages = new Vector<Package>();
 	}
 
-
+	 @XmlElement(name = "package")
 	public List<Package> getPackages() {
 		return packages;
 	}

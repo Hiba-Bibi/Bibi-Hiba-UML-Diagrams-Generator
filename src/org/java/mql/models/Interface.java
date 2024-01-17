@@ -3,20 +3,24 @@ package org.java.mql.models;
 import java.util.List;
 import java.util.Vector;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
 public class Interface {
 
-	private List<String> methods;
+	private List<Method> methods;
 	private String interfac;
 	
 	public Interface() {
-		methods = new Vector<String>();
+		methods = new Vector<Method>();
 	}
-
-	public List<String> getMethods() {
+	@XmlElement(name = "methods")
+	public List<Method> getMethods() {
 		return methods;
 	}
 
-	
+	@XmlAttribute(name = "name",  required = true)
 	public String getInterface() {
 		return interfac;
 	}
@@ -25,11 +29,11 @@ public class Interface {
 		this.interfac = interfac;
 	}
 
-	public void setMethods(List<String> methods) {
+	public void setMethods(List<Method> methods) {
 		this.methods = methods;
 	}
 	
-	public void setMethod(String method) {
+	public void setMethod(Method method) {
 		this.methods.add(method);
 	}
 	

@@ -1,60 +1,75 @@
 package org.java.mql.models;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+
 import java.util.List;
 import java.util.Vector;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
 public class Class {
 	
-	private List<String> properties;
-	private List<String> methods;
+	private List<Field> fields;
+	private List<Method> methods;
 	private List<String> constructors;
 	private String className;
+	private  List<Relation> relations;
 	
 	public Class() {
-		properties = new Vector<String>();
-		methods = new Vector<String>();
+		fields = new Vector<Field>();
+		methods = new Vector<Method>();
 		constructors = new Vector<String>();
 	}
-
-	public List<String> getProperties() {
-		return properties;
-	}
-
-	public List<String> getMethods() {
+	 @XmlElement(name = "method")
+	public List<Method> getMethods() {
 		return methods;
 	}
-
+	@XmlElement(name = "constructor")
 	public List<String> getConstructors() {
 		return constructors;
 	}
 
-	public void setProperties(List<String> properties) {
-		this.properties = properties;
-	}
-
-	public void setMethods(List<String> methods) {
+	public void setMethods(List<Method> methods) {
 		this.methods = methods;
 	}
 
 	public void setConstructors(List<String> constructors) {
 		this.constructors = constructors;
 	}
-
-	public void setPropertie(String propertie) {
-		this.properties.add(propertie);
+	 @XmlElement(name = "field")
+	public List<Field> getFields() {
+		return fields;
+	}
+	 @XmlElement(name = "relation")
+	public  List<Relation> getRelations() {
+		return relations;
 	}
 
-	public void setMethod(String method) {
+	public void setFields(List<Field> fields) {
+		this.fields = fields;
+	}
+
+	public void setRelations(List<Relation> relations) {
+		this.relations = relations;
+	}
+
+	public void setRelation(Relation relation) {
+		this.relations.add(relation);
+	}
+
+	public void setField(List<Field> fields) {
+		this.fields = fields;
+	}
+
+	public void setMethod(Method method) {
 		this.methods.add(method);
 	}
 
 	public void setConstructor(String constructor) {
 		this.constructors.add(constructor);
 	}
-
+	@XmlAttribute(name = "name",  required = true)
 	public String getClassName() {
 		return className;
 	}

@@ -1,4 +1,4 @@
-package org.java.mql.Explorer;
+package org.java.mql.explorer;
 
 import java.io.File;
 import java.util.HashSet;

@@ -1,4 +1,4 @@
-package org.java.mql.Explorer;
+package org.java.mql.explorer;
 
 import org.java.mql.models.Annotation;
 import org.java.mql.models.Class;
@@ -41,10 +41,10 @@ public class Memory {
                 // Création d'une instance de Class pour chaque classe trouvée
                 Class NewClass = new Class();
                 NewClass.setClassName(clazz.getSimpleName());
-                NewClass.setProperties(classE.getProperties());
+                NewClass.setFields(classE.getProperties());
                 NewClass.setMethods(classE.getMethods());
                 NewClass.setConstructors(classE.getConstructors());
-
+                NewClass.setRelations(classE.getRelations());
                 // Ajout de la classe au package
                 pack.setClasse(NewClass);
             }

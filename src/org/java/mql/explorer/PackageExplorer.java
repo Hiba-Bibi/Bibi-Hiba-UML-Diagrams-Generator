@@ -1,4 +1,4 @@
-package org.java.mql.Explorer;
+package org.java.mql.explorer;
 
 
 import java.io.File;
@@ -9,16 +9,7 @@ import java.util.Vector;
 
 public class PackageExplorer extends ClassLoader {
 
-    private List<Class<?>> listClass;
-    private List<Class<?>> listAnnotations;
-    private List<Class<?>> listEnumerations;
-    private List<Class<?>> listInterfaces;
-
     public PackageExplorer() {
-        listClass = new Vector<>();
-        listAnnotations = new Vector<>();
-        listEnumerations = new Vector<>();
-        listInterfaces = new Vector<>();
     }
 
     public List<Class<?>> getClasses(String packageName, String classPath) {
