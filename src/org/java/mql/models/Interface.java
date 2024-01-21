@@ -15,7 +15,7 @@ public class Interface {
 	public Interface() {
 		methods = new Vector<Method>();
 	}
-	@XmlElement(name = "methods")
+	@XmlElement(name = "method")
 	public List<Method> getMethods() {
 		return methods;
 	}

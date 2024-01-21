@@ -50,13 +50,14 @@ public class ClassExplorer {
 		return Listmethods;
 	}
 	
-	public List<String> getConstructors(){
-		List<String> constructors = new Vector<>();
+	public List<org.java.mql.models.Constructor> getConstructors(){
+		List<org.java.mql.models.Constructor> constructors = new Vector<>();
 		Constructor<?>[] AllConstructors = MyClass.getDeclaredConstructors();
 		for (Constructor<?> constructor : AllConstructors) {
-			constructors.add(Modifier.toString(constructor.getModifiers()));
-			constructors.add(constructor.getName());
-			//constructors.addAll(constructor.getParameterTypes());
+			org.java.mql.models.Constructor constructeur= new org.java.mql.models.Constructor();
+			constructeur.setModifier(Modifier.toString(constructor.getModifiers()));
+			constructeur.setName(constructor.getName());
+			constructors.add(constructeur);
 		}
 		return constructors;
 	}
@@ -70,7 +71,6 @@ public class ClassExplorer {
 		Class<?> superClass = MyClass.getSuperclass();
 		Class<?>[] interfaces = MyClass.getInterfaces();
 		
-		System.out.println("superClass   " + superClass);
 		
 		//extraire la relation d'heritage 
 		if(!superClass.equals(Object.class) ) {

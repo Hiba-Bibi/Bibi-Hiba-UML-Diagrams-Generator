@@ -1,43 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <project>
     <package name="org.java.mql.annotation">
-        <annotation name="Action"/>
-        <interface name="Action">
-            <methods modifier="public abstract" name="accessible" returnType="java.lang.String"/>
-        </interface>
+        <annotation name="Action">
+            <method modifier="public abstract" name="accessible" returnType="java.lang.String"/>
+        </annotation>
     </package>
     <package name="org.java.mql.p1">
         <classe name="A">
-            <constructor>public</constructor>
-            <constructor>org.java.mql.p1.A</constructor>
+            <constructor modifier="public" name="org.java.mql.p1.A"/>
             <field modifier="public" name="age" type="int"/>
             <field modifier="private" name="name" type="java.lang.String"/>
             <field modifier="" name="note" type="java.lang.Double"/>
-            <method modifier="private" name="saluer" returnType="void"/>
-            <method modifier="public" name="calcule" returnType="int"/>
             <method modifier="protected" name="vraiOUfaux" returnType="java.lang.Boolean"/>
+            <method modifier="public" name="calcule" returnType="int"/>
+            <method modifier="private" name="saluer" returnType="void"/>
             <relation class="Double" name="Agrégation"/>
             <relation class="Boolean" name="Dépendance"/>
         </classe>
         <classe name="B">
-            <constructor>public</constructor>
-            <constructor>org.java.mql.p1.B</constructor>
+            <constructor modifier="public" name="org.java.mql.p1.B"/>
             <method modifier="" name="somme" returnType="void"/>
             <relation class="A" name="Dépendance"/>
         </classe>
         <classe name="C">
-            <constructor>public</constructor>
-            <constructor>org.java.mql.p1.C</constructor>
-            <constructor>public</constructor>
-            <constructor>org.java.mql.p1.C</constructor>
+            <constructor modifier="public" name="org.java.mql.p1.C"/>
+            <constructor modifier="public" name="org.java.mql.p1.C"/>
             <field modifier="" name="a" type="org.java.mql.p1.A"/>
             <field modifier="" name="b" type="org.java.mql.p1.B"/>
             <relation class="A" name="Composition"/>
             <relation class="B" name="Agrégation"/>
         </classe>
         <classe name="D">
-            <constructor>public</constructor>
-            <constructor>org.java.mql.p1.D</constructor>
+            <constructor modifier="public" name="org.java.mql.p1.D"/>
             <relation class="Interface" name="realisation"/>
         </classe>
         <interface name="Interface"/>

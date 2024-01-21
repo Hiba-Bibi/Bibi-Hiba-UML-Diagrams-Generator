@@ -26,7 +26,7 @@ public class ObjectsToXml {
 		JAXBContext context = JAXBContext.newInstance(Project.class);
 	    Marshaller marshaller = context.createMarshaller();
 	
-	    // Afficher le XML dans la console (peut être supprimé dans la production)
+	  
 	    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 	
 	    // Sérialiser l'objet en XML

@@ -46,7 +46,7 @@ public class PackageExplorer extends ClassLoader {
 
                     if ((myClass.isEnum() && "Enumeration".equals(type)) || 
                         (myClass.isAnnotation() && "Annotation".equals(type)) || 
-                        (myClass.isInterface() && "Interface".equals(type)) || 
+                        (myClass.isInterface() && "Interface".equals(type) && !myClass.isAnnotation()) || 
                         (!myClass.isAnnotation() && !myClass.isEnum() && !myClass.isInterface() && "Class".equals(type))) {
                         filteredClasses.add(myClass);
                     }

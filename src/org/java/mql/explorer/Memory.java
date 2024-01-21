@@ -51,9 +51,11 @@ public class Memory {
 
             // Exploration des annotations dans le package
             for (java.lang.Class<?> annotation : packE.getAnnotations(pack.getPackage(), classpath)) {
+            	 ClassExplorer classE = new ClassExplorer(annotation);
                 // Création d'une instance d'Annotation pour chaque annotation trouvée
                 Annotation NewAnnotation = new Annotation();
                 NewAnnotation.setAnnotation(annotation.getSimpleName());
+                NewAnnotation.setMethods(classE.getMethods());
                 // Ajout de l'annotation au package
                 pack.setAnnotation(NewAnnotation);
             }

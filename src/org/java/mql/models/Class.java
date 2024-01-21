@@ -12,21 +12,22 @@ public class Class {
 	
 	private List<Field> fields;
 	private List<Method> methods;
-	private List<String> constructors;
+	private List<Constructor> constructors;
 	private String className;
 	private  List<Relation> relations;
 	
 	public Class() {
 		fields = new Vector<Field>();
 		methods = new Vector<Method>();
-		constructors = new Vector<String>();
+		constructors = new Vector<Constructor>();
+		relations = new Vector<Relation>();
 	}
 	 @XmlElement(name = "method")
 	public List<Method> getMethods() {
 		return methods;
 	}
 	@XmlElement(name = "constructor")
-	public List<String> getConstructors() {
+	public List<Constructor> getConstructors() {
 		return constructors;
 	}
 
@@ -34,7 +35,7 @@ public class Class {
 		this.methods = methods;
 	}
 
-	public void setConstructors(List<String> constructors) {
+	public void setConstructors(List<Constructor> constructors) {
 		this.constructors = constructors;
 	}
 	 @XmlElement(name = "field")
@@ -58,15 +59,15 @@ public class Class {
 		this.relations.add(relation);
 	}
 
-	public void setField(List<Field> fields) {
-		this.fields = fields;
+	public void setField(Field field) {
+		fields.add(field);
 	}
 
 	public void setMethod(Method method) {
 		this.methods.add(method);
 	}
 
-	public void setConstructor(String constructor) {
+	public void setConstructor(Constructor constructor) {
 		this.constructors.add(constructor);
 	}
 	@XmlAttribute(name = "name",  required = true)
