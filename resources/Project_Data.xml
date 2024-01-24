@@ -11,9 +11,9 @@
             <field modifier="public" name="age" type="int"/>
             <field modifier="private" name="name" type="java.lang.String"/>
             <field modifier="" name="note" type="java.lang.Double"/>
-            <method modifier="protected" name="vraiOUfaux" returnType="java.lang.Boolean"/>
             <method modifier="public" name="calcule" returnType="int"/>
             <method modifier="private" name="saluer" returnType="void"/>
+            <method modifier="protected" name="vraiOUfaux" returnType="java.lang.Boolean"/>
             <relation class="Double" name="Agrégation"/>
             <relation class="Boolean" name="Dépendance"/>
         </classe>
